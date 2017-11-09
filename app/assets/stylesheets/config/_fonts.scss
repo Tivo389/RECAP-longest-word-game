@@ -1,16 +1,43 @@
-// Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-
-// Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: "Open Sans", "Helvetica", "sans-serif";
+$font__size--mobile: 1.8rem;
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+// 029 Make font-size basis for mobile & desktop. MOVE 2 '_game.scss'
+html {
+  font-size: 62.5%;
+  font-family: $body-font;
+  body {
+    font-size: 1.8rem;
+  }
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: $headers-font;
+}
+
+// h1 = Banner
+// h2 = Page Title
+// h3 = Page sub-Title
+// h4 = Article Header
+// h5 = Article sub-Header
+
+
+
+
+
+
+/*------------  xs < 768px (.container @ auto) START  ------------*/
+h1 {
+  font-size: $font__size--mobile * 2;
+}
+/*------------  xs < 768px (.container @ auto) END  ------------*/
+
+
+
+
+
+
+/*------------  md >= 992px (.container @ 970px) START  ------------*/
+@media (min-width: 992px) {
+}
+/*------------ } @media (min-width: 992px) END ------------*/
