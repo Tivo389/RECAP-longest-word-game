@@ -1,0 +1,10 @@
+<div id="gameboard">
+  <h1 class="title">Make a word!</h1>
+  <div class="grid__container">
+    <!-- 025 I pass the @grid (the array of alphabets) into here and display each one in the view. -->
+    <% @grid.each do |alphabet| %>
+      <!-- 026 I'm going to start applying some basic styling. MOVE 2 '_game.scss' -->
+      <p class="font__alphabets--grid"><%= alphabet %></p>
+    <% end %>
+  </div>
+</div>

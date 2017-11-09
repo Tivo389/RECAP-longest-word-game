@@ -1,0 +1,41 @@
+#gameboard {
+  height: 100vh;
+  padding: 8px;
+  position: relative;
+  width: 100vw;
+}
+// 027 Make a class for the chosen alphabets. MOVE 2 'application.scss'.
+.font__alphabets--grid {
+  background-color: $color__theme--main;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: $color--white;
+  cursor: default;
+  display: inline-block;
+  font-size: 9vw;
+  font-weight: bolder;
+  height: 10vw;
+  line-height: 1.1;
+  text-align: center;
+  transition-duration: $duration--sm;
+  width: 10vw;
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-3px);
+  }
+}
+// 030 Make necessary classes. CONTINUE HERE
+.grid__container {
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: calc(100vw - 16px);
+}
+.title {
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
