@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RECAPLongestWordGame</title>
+    <!-- 011 The following meta tags are added to ensure the responsive layout works for bootstrap. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- 012 While I'm here I add the navbar and the footer views (.html.erb not made at this point) -->
+    <!-- 013 Using the side bar in Sublime I make a new directory 'shared' within the 'app/views'. Then in the 'shared' I make the '_navbar.html.erb' and the '_footer.html.erb'. MOVE 2 '_navbar.html.erb' -->
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
+  </body>
+</html>

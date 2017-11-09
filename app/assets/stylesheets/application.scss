@@ -1,0 +1,16 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+// 009 Although I didn't specifically install "gem 'sprockets'" if you look at the 'Gemfile.lock' its gets installed as a component (?) of other gems. In this case, since this is from the Le Wagon zip file I don't need to manually add the external libraries. The following 4 imports (I presume) are for the gems "bootstrap-sass" and "font-awesome-sass". MOVE 2 'application.js'
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "layouts/index";
+@import "components/index";
+@import "pages/index";
