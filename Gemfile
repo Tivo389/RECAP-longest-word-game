@@ -47,7 +47,7 @@ gem 'autoprefixer-rails'
 # 005 'rm -rf app/assets/stylesheets' @terminal / We're going to change the organisation of the css so first we're going to remove the default.
 # 006 'curl -L https://github.com/lewagon/rails-stylesheets/archive/master.zip > stylesheets.zip' @terminal / This downloads the lewagon stylesheet zip file.
 # 007 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/rails-stylesheets-master app/assets/stylesheets' @terminal / This unzips the files and folders into the assets/stylesheets directory.
-# 008 When we have a gem that installs scss and js files, we need to import and require these files into the main js & css file of our application. MOVE 2 application.scss
+# 008 When we have a gem that installs scss and js files, we need to import and require these files into the main js & css file of our application. MOVE 2 'application.scss'
 
 # 018a SOLUTION / MOVE 2 'routes.rb'
 gem 'jquery-rails'
@@ -55,7 +55,7 @@ gem 'jquery-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # 001 The following gems were added to working with errors becomes easier. 002 is a few lines above
+  # 001 The following gems were added so working with errors becomes easier. 002 is a few lines above
   gem 'better_errors'
   gem 'binding_of_caller'
 end

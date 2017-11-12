@@ -1,2 +1,38 @@
-<h1>Games#score</h1>
-<p>Find me in app/views/games/score.html.erb</p>
+<!-- 053 IT WORKS!!! The base game at this point is pretty much complete. But I want to proceed with the following.-->
+<h1><%= @result %></h1>
+<%= link_to 'Play A New Game', root_path, class: "btn btn-primary" %>
+
+
+
+
+<!-- 035 Checking to see the data is being passed correctly. -->
+<% if false %>
+<h3><%= @user_word %></h3>
+<h3><%= @user_letters %></h3>
+<h3><%= @grid_letters %></h3>
+<!-- 036 YES! Now I need to check this input to make sure that its... -->
+  <!-- 036a Uses the letters from the grid -->
+  <!-- 036b Is a valid word (check with le wagon dictionary, upgrade the dictionary later) -->
+  <!-- 036c Calculate the score. -->
+  <!-- MOVE 2 'games_controller.rb' -->
+
+<!-- 041 Check if everything is in order... -->
+<h3><%= @included %></h3>
+<h3><%= @valid_word %></h3>
+<!-- 042 YES! Just noticed there is no time-tracker implemented so it calcs the score. The general scoring should calc from high to low as follows... -->
+  <!-- CALC METHOD = WordLength / Time -->
+  <!-- 042a LongWord & ShortTime  -->
+  <!-- 042b LongWord & LongTime -->
+  <!-- 042c ShortWord & ShortTime -->
+  <!-- 042d ShortWord & LongTime -->
+<!-- 043 Going to need to start a timer when the page is loaded, and record the time when the user submits the answer. MOVE 2 'games_controller.rb' -->
+
+<!-- 046 Lets make sure the time is being passed correctly. -->
+  <!-- 046 ERROR / Its not appearing... MOVE 2 'games_controller.rb' -->
+<h3><%= @time_start %></h3>
+<h3><%= @time_start.class %></h3>
+<!-- 048 Confirmation and calculating. All variables seem in good order. MOVE 2 'games_controller.rb' -->
+<h3><%= @time_end %></h3>
+<h3><%= @time_end.class %></h3>
+<h3><%= (@time_end - @time_start).round(2) %></h3>
+<% end %>
