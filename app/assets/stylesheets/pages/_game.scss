@@ -21,10 +21,10 @@
   width: 10vw;
   &:hover {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    transform: translateY(-3px);
+    transform: translateY(-10%);
   }
 }
-// 030 Make necessary classes. CONTINUE HERE
+// 030 Make necessary classes. MOVE 2 'game.html.erb'
 .grid__container {
   bottom: 0;
   display: flex;
