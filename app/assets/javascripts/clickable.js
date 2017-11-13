@@ -3,9 +3,9 @@ $(document).ready(function() {
   // console.log('DOM READY!!');
   // 057 When the letters on mousedown (not click since it requires user to click-off on theletter) do the following...
 
-  acceptUserLetters();
+  playWordGame();
 
-  function acceptUserLetters() {
+  function playWordGame() {
     var input = [];
     $('div.grid__container').children().each(function(gridIndex) {
       $(this).mousedown(function() {
