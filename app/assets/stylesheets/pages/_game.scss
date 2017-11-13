@@ -21,7 +21,12 @@
   width: 10vw;
   &:hover {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
     transform: translateY(-10%);
+  }
+  // 057a Class when the alphabet is selected. MOVE 2 'clickable.js'
+  &.selected {
+    filter: grayscale(1);
   }
 }
 // 030 Make necessary classes. MOVE 2 'game.html.erb'
