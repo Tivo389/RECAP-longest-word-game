@@ -1,77 +1,75 @@
 $(document).ready(function() {
-
   // 056 Put the line below to ensure the file was being compiled correctly :)
   // console.log('DOM READY!!');
+
   playWordGame();
 
   function playWordGame() {
     var selectedLetters = [];
-    clickLetter();
-    function clickLetter() {
-      $('div.grid__container').children().each(function(gridIndex) {
-        $(this).mousedown(function() {
-          var targetHTML = document.querySelector('div.letters__container');
-          var selectedLetter = this.innerHTML;
-          var letterNotSelected = $(this).hasClass('selected') === false;
-          switch (event.which) {
-            case 1: // Left
-              // 057 When left mousedown letter (not click; it req user to click-off) do the following...
-              if (letterNotSelected) {
-                addLetter(this, gridIndex, selectedLetter);
-                console.log(selectedLetters.length);
-              } else {
-                removeLetter(gridIndex, selectedLetter);
-                console.log(selectedLetters.length);
-              }
-            case 2: // Middle
-              break;
-            case 3: // Right
-              break;
-          }
-          //-----------------------------------------------------
-          function addLetter(gridLetterTag, gridIndex, selectedLetter){
-            // 057a Add a class to grey it out. MOVE 2 '_game.scss'
-            $(this).addClass('selected');
-            // 058  Then add to array as an object with gridIndex (to accomodate for same alphabets).
-            selectedLetters.push(new makeGridLetterObj(gridIndex, selectedLetter));
-            // 059 Make a new function that will duplicate the html (gridLetterTag) into the word div area. MOVE 2 'game.html.erb'
-            addSelectedLetters(gridLetterTag);
-            return selectedLetters;
-            function makeGridLetterObj(gridIndex, selectedLetter) {
-              this[gridIndex] = selectedLetter;
+    //=====================================================
+    $('div.grid__container').children().each(function(gridIndex) {
+      $(this).mousedown(function() {
+        var gridLetterTag = $(this);
+        var targetHTML = document.querySelector('div.letters__container');
+        var selectedLetter = this.innerHTML;
+        var letterNotSelected = !(gridLetterTag.hasClass('selected')) === true;
+        //----------------------------------------------------
+        switch (event.which) {
+          case 1: // Left
+            // 057 When left mousedown letter (not click; it req user to click-off) do the following...
+            if (letterNotSelected) {
+              addLetter(gridIndex, gridLetterTag, selectedLetter);
+              return selectedLetters;
+            } else {
+              removeLetter(gridIndex, gridLetterTag, selectedLetter);
+              return selectedLetters;
             }
-            // 062 Function that will duplicate the html. 063 is BELOW.
-            function addSelectedLetters(gridLetterTag) {
-              targetHTML.insertAdjacentHTML('beforeend', gridLetterTag.outerHTML);
-            }
+          case 2: // Middle
+            break;
+          case 3: // Right
+            break;
+        }
+        //-----------------------------------------------------
+        function addLetter(gridIndex, gridLetterTag, selectedLetter){
+          // 061 The html of selected letter is duplicated. Above 058 to ensure not grey-out is copied.
+          targetHTML.insertAdjacentHTML('beforeend', gridLetterTag[0].outerHTML);
+          // 057a Add a class to grey it out. MOVE 2 '_game.scss'
+          gridLetterTag.addClass('selected');
+          // 058  Then add to array as an object with gridIndex (to accomodate for same alphabets). MOVE 2 'game.html.erb'
+          selectedLetters.push(new makeGridLetterObj(gridIndex, selectedLetter));
+          return selectedLetters;
+          function makeGridLetterObj(gridIndex, selectedLetter) {
+            this[gridIndex] = selectedLetter;
           }
-          //-----------------------------------------------------
-          function removeLetter(gridIndex, selectedLetter) {
-            $(this).removeClass('selected');
-            removeSelectedLetter(gridIndex);
-            selectedLetters.forEach(function(object, arrayIndex) {
-              if (object[gridIndex] === selectedLetter) {
-                selectedLetters.splice(arrayIndex, arrayIndex + 1);
-              } else if (object.length === 1) {
-                selectedLetters = [];
-              }
-            });
-            return selectedLetters;
-            // 063 Function that will remove the correct letter from the html. / BUG... ISSUE WITH REMOVAL CONTINUE HERE /
-            function removeSelectedLetter(gridIndex) {
-              selectedLetters.forEach(function(object, arrayIndex) {
-                if ((targetHTML.children[arrayIndex] !== undefined) && (object[gridIndex] !== undefined) && (object[gridIndex] === targetHTML.children[arrayIndex].innerHTML)) {
-                  targetHTML.children[arrayIndex].remove();
-                } else if (selectedLetters.length === 1) {
-                  targetHTML.removeChild(targetHTML.firstChild);
-                }
-              });
+        }
+        //-----------------------------------------------------
+        function removeLetter(gridIndex, gridLetterTag, selectedLetter) {
+          for (var i = 0; i < selectedLetters.length; i++) {
+            if (selectedLetters[i][gridIndex] === targetHTML.children[i].innerHTML) {
+              targetHTML.children[i].remove();
+              selectedLetters.splice(i, 1);
             }
           }
-          //-----------------------------------------------------
-        });
+          gridLetterTag.removeClass('selected');
+          return selectedLetters;
+        }
+        //-----------------------------------------------------
       });
-    };
+    });
+    //=====================================================
+    // 062 When the enter key is pressed, get the selected letters, join them, pass the into the input, and submit.
+    $(document).keydown(function(){
+      var userWord = [];
+      if (event.which === 13) {
+        selectedLetters.forEach(function(letterObject) {
+          userWord.push(Object.values(letterObject)[0]);
+        });
+        $('#game_data_user_answer')[0].value = userWord.join('');
+        $('#user_word').submit();
+      }
+    });
+    // 063 CONTINUE HERE USE AJAX TO GET THE SCORE AND DISPLAY IT ON A MODAL
+    //=====================================================
   };
 
 });
