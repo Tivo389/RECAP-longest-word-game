@@ -1,9 +1,12 @@
 <div id="gameboard">
 
-  <h1 class="title">Make a word!</h1>
+  <div class="text-center">
+    <h1 class="title">Make a word!</h1>
+    <p>Click enter to submit</p>
+  </div>
 
   <!-- 031 simple_form (no-model) that will take the ':game_data' and do a get request for '/games/score'. The ':user_answer' will submit the user input, and ':grid_letters' will submit a string of the grid letters. MOVE 2 'games_controller.rb'  -->
-  <%= simple_form_for :game_data, url:'/games/score', method:'get', as: :hidden do |f| %>
+  <%= simple_form_for :game_data, url:'/games/score', method:'get', html: { id: 'user_word' }, as: :hidden do |f| %>
     <%= f.input :user_answer %>
     <%= f.input :grid_letters, as: :hidden, input_html: {value: @grid} %>
     <!-- 045 This will pass the time started to the score page. MOVE 2 'score.html.erb' -->
@@ -11,7 +14,7 @@
     <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
 
-  <!-- 060 Make an area for the chosen letters. MOVE 2 '_game.scss' -->
+  <!-- 059 Make an area for the chosen letters. MOVE 2 '_game.scss' -->
   <div class="letters__container">
   </div>
 
