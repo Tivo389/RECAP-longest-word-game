@@ -7,14 +7,15 @@
 
   <!-- 031 simple_form (no-model) that will take the ':game_data' and do a get request for '/games/score'. The ':user_answer' will submit the user input, and ':grid_letters' will submit a string of the grid letters. MOVE 2 'games_controller.rb'  -->
   <%= simple_form_for :game_data, url:'/games/score', method:'get', html: { id: 'user_word' }, as: :hiddn do |f| %>
-    <%= f.input :user_answer, input_html: {value: @user_answer}  %>
+    <%= f.input :user_answer %>
     <%= f.input :grid_letters, input_html: {value: @grid} %>
     <!-- 045 This will pass the time started to the score page. MOVE 2 'score.html.erb' -->
-    <%= f.input :time_start, input_html: {value: @time_start} %>
+    <%#= f.input :time_start, input_html: {value: @time_start} %>
     <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
 
-  <%= content_tag :div, html: { id: 'rubyData' }, as: :hidden, data: {temp: @user_answer} do %>
+  <!-- 065 A trick online to transfer ruby variables to javacsript by hiding them inside a hidden div. On second thought the time_start being a ruby var and time_end being a js var doesnt sound good. MOVE 2 'clickable.js'  -->
+  <%= content_tag :div, id: 'rubyData' , as: :hidden, data: {gridletters: @grid} do %>
   <% end %>
 
   <!-- 059 Make an area for the chosen letters. MOVE 2 '_game.scss' -->

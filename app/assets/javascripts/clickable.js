@@ -6,6 +6,8 @@ $(document).ready(function() {
 
   function playWordGame() {
     var selectedLetters = [];
+    // 066 New variable. 067 is BELOW.
+    var timeStart = new Date();
     //=====================================================
     $('div.grid__container').children().each(function(gridIndex) {
       $(this).mousedown(function() {
@@ -59,21 +61,28 @@ $(document).ready(function() {
     //=====================================================
     // 062 When the enter key is pressed, get the selected letters, join them, pass the into the input, and submit.
     $(document).keydown(function(){
-      var userWordArray = [];
       if (event.which === 13) {
+        var userWordArray = [];
         selectedLetters.forEach(function(letterObject) {
           userWordArray.push(Object.values(letterObject)[0]);
         });
         var userWord = userWordArray.join('');
+        // 067 New Variable. 068 is BELOW.
+        var timeEnd = new Date();
         $('#game_data_user_answer')[0].value = userWord;
         // 063 When submit the following function, and not the default should run.
         $('#user_word').submit(getTheResult());
       }
-      // 064 A function to get the game data from the simple_form,
+      // 064 A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
       function getTheResult() {
-        var gameData = {};
-        console.log($('#rubyData').data('temp'));
+        console.log(userWord);
+        console.log(timeStart);
+        console.log(timeEnd);
+        console.log((timeEnd - timeStart)/1000);
+        console.log($('#rubyData').data('gridletters'));
+        // 068 Since there were a few redefined variables, the controller might have to go through some changes... CONTINUE HERE
         // const fetchUrl = `/games/score?userWord=${userWord}&gridLetters=${gridLetters}&timeStart=${timeStart}&timeEnd=${timeEnd}}`
+        // request.original_url
       }
     });
     //=====================================================
