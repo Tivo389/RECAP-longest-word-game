@@ -59,16 +59,23 @@ $(document).ready(function() {
     //=====================================================
     // 062 When the enter key is pressed, get the selected letters, join them, pass the into the input, and submit.
     $(document).keydown(function(){
-      var userWord = [];
+      var userWordArray = [];
       if (event.which === 13) {
         selectedLetters.forEach(function(letterObject) {
-          userWord.push(Object.values(letterObject)[0]);
+          userWordArray.push(Object.values(letterObject)[0]);
         });
-        $('#game_data_user_answer')[0].value = userWord.join('');
-        $('#user_word').submit();
+        var userWord = userWordArray.join('');
+        $('#game_data_user_answer')[0].value = userWord;
+        // 063 When submit the following function, and not the default should run.
+        $('#user_word').submit(getTheResult());
+      }
+      // 064 A function to get the game data from the simple_form,
+      function getTheResult() {
+        var gameData = {};
+        console.log($('#rubyData').data('temp'));
+        // const fetchUrl = `/games/score?userWord=${userWord}&gridLetters=${gridLetters}&timeStart=${timeStart}&timeEnd=${timeEnd}}`
       }
     });
-    // 063 CONTINUE HERE USE AJAX TO GET THE SCORE AND DISPLAY IT ON A MODAL
     //=====================================================
   };
 
