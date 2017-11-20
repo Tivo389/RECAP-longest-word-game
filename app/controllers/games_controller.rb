@@ -48,6 +48,15 @@ class GamesController < ApplicationController
     @valid_word = valid_word?(@user_word)
     # 049 A function that calculates the result using the above variables. 050 is BELOW.
     @result = result(@user_word, @included, @valid_word, @time_start, @time_end)
+
+    # 072 IT WORKS!!! At this point after I click submit or press enter...
+      # 072a - The game_data gets posted, it is received by this method (def score) and passes through to score.js.erb.
+      # 072b - This was confirmed by showing a console log message.
+    # 073 CONTINUE HERE / Make a basic test so the score.js.erb alters the dom by showing the data that is passed.
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   private
