@@ -71,7 +71,9 @@ $(document).ready(function() {
         var timeEnd = new Date();
         $('#game_data_user_answer')[0].value = userWord;
         // 063 When submit the following function, and not the default should run.
-        $('#user_word').submit(getTheResult());
+        // $('#user_word').submit(getTheResult());
+        // 069 Seems I was heading in the wrong direction, adjusting to fix. MOVE 2 'game.html.erb'
+        $('#user_word').submit();
       }
       // 064 A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
       function getTheResult() {
@@ -80,8 +82,7 @@ $(document).ready(function() {
         console.log(timeEnd);
         console.log((timeEnd - timeStart)/1000);
         console.log($('#rubyData').data('gridletters'));
-        // 068 Since there were a few redefined variables, the controller might have to go through some changes... CONTINUE HERE
-        // const fetchUrl = `/games/score?userWord=${userWord}&gridLetters=${gridLetters}&timeStart=${timeStart}&timeEnd=${timeEnd}}`
+        // 068 Since there were a few redefined variables, the controller might have to go through some changes... 069 is ABOVE.
         // request.original_url
       }
     });

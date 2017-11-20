@@ -6,11 +6,12 @@
   </div>
 
   <!-- 031 simple_form (no-model) that will take the ':game_data' and do a get request for '/games/score'. The ':user_answer' will submit the user input, and ':grid_letters' will submit a string of the grid letters. MOVE 2 'games_controller.rb'  -->
-  <%= simple_form_for :game_data, url:'/games/score', method:'get', html: { id: 'user_word' }, as: :hiddn do |f| %>
+  <!-- 070 added remote: true so this will now be handled as a ajax request. MOVE 2 'routes.rb'-->
+  <%= simple_form_for :game_data, url:'/games/score', method:'post', remote: true, as: :hiddn, html: { id: 'user_word' } do |f| %>
     <%= f.input :user_answer %>
     <%= f.input :grid_letters, input_html: {value: @grid} %>
     <!-- 045 This will pass the time started to the score page. MOVE 2 'score.html.erb' -->
-    <%#= f.input :time_start, input_html: {value: @time_start} %>
+    <%= f.input :time_start, input_html: {value: @time_start} %>
     <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
 
