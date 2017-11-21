@@ -87,10 +87,10 @@ class GamesController < ApplicationController
     if included == false # if word doesn't use letters in grid.
       return "It looks like you haven't used the letters provided."
     elsif valid_word == false # if the letters are included but the word is invalid.
-      return "Sorry, but I can't find the word you provided in the dictionary."
+      return "Sorry, we can't find the word you provided in the dictionary."
     elsif (included == true) && (valid_word == true) # if its a valid word then return the score based on the WordLength/Time
       score = ((user_word.length / (time_end - time_start)) * 100).round(0)
-      return "Your score is #{score}"
+      return "Your word \"#{user_word}\"<br>is #{score} points!"
     end
   end
   # 052 Lets see if it works. MOVE 2 'score.html.erb'
