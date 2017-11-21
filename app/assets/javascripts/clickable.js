@@ -6,8 +6,8 @@ $(document).ready(function() {
 
   function playWordGame() {
     var selectedLetters = [];
-    // 066 New variable. 067 is BELOW.
-    var timeStart = new Date();
+    // 066 [CANCELLED] New variable. 067 is BELOW.
+    // var timeStart = new Date();
     //=====================================================
     $('div.grid__container').children().each(function(gridIndex) {
       $(this).mousedown(function() {
@@ -67,22 +67,22 @@ $(document).ready(function() {
           userWordArray.push(Object.values(letterObject)[0]);
         });
         var userWord = userWordArray.join('');
-        // 067 New Variable. 068 is BELOW.
-        var timeEnd = new Date();
+        // 067 [CANCELLED] New Variable. 068 is BELOW.
+        // var timeEnd = new Date();
         $('#game_data_user_answer')[0].value = userWord;
-        // 063 When submit the following function, and not the default should run.
+        // 063 [CANCELLED] When submit the following function, and not the default should run.
         // $('#user_word').submit(getTheResult());
-        // 069 Seems I was heading in the wrong direction, adjusting to fix. MOVE 2 'game.html.erb'
+        // 069 Seems I was heading in the wrong direction, adjusting to fix, cancelled some previous steps. MOVE 2 'game.html.erb'
         $('#user_word').submit();
       }
-      // 064 A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
+      // 064 [CANCELLED] A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
       function getTheResult() {
         console.log(userWord);
         console.log(timeStart);
         console.log(timeEnd);
         console.log((timeEnd - timeStart)/1000);
         console.log($('#rubyData').data('gridletters'));
-        // 068 Since there were a few redefined variables, the controller might have to go through some changes... 069 is ABOVE.
+        // 068 [CANCELLED] Since there were a few redefined variables, the controller might have to go through some changes... 069 is ABOVE.
         // request.original_url
       }
     });

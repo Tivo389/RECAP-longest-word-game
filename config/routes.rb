@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get 'games/game'
 
-  # 071 Change from 'get' to 'post'. MOVE 2 'games_controller.rb'
-  post 'games/score'
+  get 'games/score'
   # 017 Changed the line below from the default "get 'pages/game'" to "root 'pages#game'" so the 'game.html.erb' becomes the landing page.
 
   # 018 'rails s' @terminal / Lets make sure that what we've done so far is working.
