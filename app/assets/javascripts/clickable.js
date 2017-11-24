@@ -60,31 +60,43 @@ $(document).ready(function() {
     });
     //=====================================================
     // 062 When the enter key is pressed, get the selected letters, join them, pass the into the input, and submit.
-    $(document).keydown(function(){
+    function submitAnswer() {
+      var userWordArray = [];
+      selectedLetters.forEach(function(letterObject) {
+        userWordArray.push(Object.values(letterObject)[0]);
+      });
+      var userWord = userWordArray.join('');
+      // 067 [CANCELLED] New Variable. 068 is BELOW.
+      // var timeEnd = new Date();
+      $('#game_data_user_answer')[0].value = userWord;
+      // 063 [CANCELLED] When submit the following function, and not the default should run.
+      // $('#user_word').submit(getTheResult());
+      // 069 Seems I was heading in the wrong direction, adjusting to fix, cancelled some previous steps. MOVE 2 'game.html.erb'
+      $('#user_word').submit();
+    }
+
+    $('div.button_new_game').click(function() {
+      location.reload();
+    });
+
+    $('div.button_submit').click(function() {
+      submitAnswer();
+    });
+
+    $(document).keydown(function() {
       if (event.which === 13) {
-        var userWordArray = [];
-        selectedLetters.forEach(function(letterObject) {
-          userWordArray.push(Object.values(letterObject)[0]);
-        });
-        var userWord = userWordArray.join('');
-        // 067 [CANCELLED] New Variable. 068 is BELOW.
-        // var timeEnd = new Date();
-        $('#game_data_user_answer')[0].value = userWord;
-        // 063 [CANCELLED] When submit the following function, and not the default should run.
-        // $('#user_word').submit(getTheResult());
-        // 069 Seems I was heading in the wrong direction, adjusting to fix, cancelled some previous steps. MOVE 2 'game.html.erb'
-        $('#user_word').submit();
+        submitAnswer();
       }
       // 064 [CANCELLED] A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
-      function getTheResult() {
-        console.log(userWord);
-        console.log(timeStart);
-        console.log(timeEnd);
-        console.log((timeEnd - timeStart)/1000);
-        console.log($('#rubyData').data('gridletters'));
+      // function getTheResult() {
+      //   console.log(userWord);
+      //   console.log(timeStart);
+      //   console.log(timeEnd);
+      //   console.log((timeEnd - timeStart)/1000);
+      //   console.log($('#rubyData').data('gridletters'));
         // 068 [CANCELLED] Since there were a few redefined variables, the controller might have to go through some changes... 069 is ABOVE.
         // request.original_url
-      }
+      // }
     });
     //=====================================================
   };

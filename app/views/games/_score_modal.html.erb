@@ -2,6 +2,15 @@
 <div id="score_modal">
   <div class="text__container">
     <!-- 076 simple format allowed the use of <br> in the 'games_controller.rb' -->
+    <!-- 077 Adding submit button, and adjusting modal so not logging. CONTINUE from 078 once its done.  -->
     <h1><%= simple_format(@result) %></h1>
   </div>
+  <div class="button_new_game--modal">
+    <span>NEW GAME</span>
+  </div>
 </div>
+<script>
+  $('div.button_new_game--modal').click(function() {
+    location.reload();
+  });
+</script>
