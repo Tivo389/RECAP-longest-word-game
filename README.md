@@ -1,24 +1,7 @@
-# README
+# LONGEST WORD GAME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Based on a ruby excercise with more additional features for mobile.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Countdown feature.
+* Tap and show word.
+* Ajax to show result.
