@@ -10,7 +10,7 @@ $(document).ready(function() {
     // var timeStart = new Date();
     //=====================================================
     $('div.grid__container').children().each(function(gridIndex) {
-      $(this).mousedown(function() {
+      $(this).mousedown(function(event) {
         var gridLetterTag = $(this);
         var targetHTML = document.querySelector('div.letters__container');
         var selectedLetter = this.innerHTML;
@@ -59,6 +59,34 @@ $(document).ready(function() {
       });
     });
     //=====================================================
+    // 082 Added the 'timer.js' here so it can access the function 'submitAnswer'.
+    // 083 COMPLETE!! GIT AND MERGE.
+    var count = 1000;
+
+    var counter = setInterval(timer, 10);
+
+    function timer() {
+      if (count <= 0) {
+        clearInterval(counter);
+        document.getElementById("timer").innerHTML = 'Time is up!';
+        document.getElementById("gameboard").style["pointer-events"] = 'none';
+        submitAnswer();
+        return;
+      } else {
+        if (count % 100 === 1) {
+          count--;
+          document.getElementById("timer").innerHTML = (count / 100) + '.00';
+          return;
+        } else if (count % 10 === 1) {
+          count--;
+          document.getElementById("timer").innerHTML = (count / 100) + '0';
+          return;
+        }
+        count--;
+        document.getElementById("timer").innerHTML = count / 100;
+      }
+    }
+    //=====================================================
     // 062 When the enter key is pressed, get the selected letters, join them, pass the into the input, and submit.
     function submitAnswer() {
       var userWordArray = [];
@@ -76,15 +104,18 @@ $(document).ready(function() {
     }
 
     $('div.button_new_game').click(function() {
+      clearInterval(counter);
       location.reload();
     });
 
     $('div.button_submit').click(function() {
+      clearInterval(counter);
       submitAnswer();
     });
 
-    $(document).keydown(function() {
+    $(document).keydown(function(event) {
       if (event.which === 13) {
+        clearInterval(counter);
         submitAnswer();
       }
       // 064 [CANCELLED] A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
@@ -98,7 +129,6 @@ $(document).ready(function() {
         // request.original_url
       // }
     });
-    //=====================================================
   };
 
 });

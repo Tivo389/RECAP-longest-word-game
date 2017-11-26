@@ -3,7 +3,12 @@
   <div class="text__container">
     <!-- 076 simple format allowed the use of <br> in the 'games_controller.rb' -->
     <!-- 077 Adding submit button, and adjusting modal so not logging. CONTINUE from 078 once its done.  -->
-    <h1><%= simple_format(@result) %></h1>
+    <!-- 078 Adding countdown timer. MOVE 2 'game.html.erb' -->
+    <% if @user_word == "" %>
+      <h1>Time is up!</h1>
+    <% else %>
+      <h1><%= simple_format(@result) %></h1>
+    <% end %>
   </div>
   <div class="button_new_game--modal">
     <span>NEW GAME</span>
@@ -13,4 +18,5 @@
   $('div.button_new_game--modal').click(function() {
     location.reload();
   });
+  document.getElementById("gameboard").style["pointer-events"] = 'unset';
 </script>

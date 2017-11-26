@@ -4,6 +4,11 @@
     <div class="button_new_game">
       <span>NEW GAME</span>
     </div>
+    <!-- 079 Adding a 15 second countdown timer. CREATE AND MOVE 2 'timer.js' -->
+    <div class="text-center">
+      <h2 class="title">Quick! Make a word!</h2>
+      <span id="timer"></span>
+    </div>
     <div class="button_submit">
       <span>SUBMIT</span>
     </div>
@@ -11,7 +16,7 @@
 
   <!-- 031 simple_form (no-model) that will take the ':game_data' and do a get request for '/games/score'. The ':user_answer' will submit the user input, and ':grid_letters' will submit a string of the grid letters. MOVE 2 'games_controller.rb'  -->
   <!-- 070 added remote: true so this will now be handled as a ajax request. MOVE 2 'games_controller.rb'-->
-  <%= simple_form_for :game_data, url:'/games/score', method:'get', remote: true, as: :hidden, html: { id: 'user_word' } do |f| %>
+  <%= simple_form_for :game_data, url:'/games/score', remote: true, method:'get', as: :hidden, html: { id: 'user_word' } do |f| %>
     <%= f.input :user_answer %>
     <%= f.input :grid_letters, input_html: {value: @grid} %>
     <!-- 045 This will pass the time started to the score page. MOVE 2 'score.html.erb' -->
@@ -24,7 +29,6 @@
   <%# end %>
   <div>
     <div class="text-center">
-      <h2 class="title">Quick! Make a word!</h2>
     </div>
     <!-- 059 Make an area for the chosen letters. MOVE 2 '_game.scss' -->
     <div class="letters__container">

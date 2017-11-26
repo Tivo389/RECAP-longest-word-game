@@ -7,6 +7,10 @@
   position: relative;
   width: 100vw;
 }
+#timer {
+  font-size: 3.0rem;
+  font-weight: bolder;
+}
 .button_new_game {
   background-color: $color__theme--sub;
   border-radius: 3px;
@@ -18,12 +22,14 @@
   // position: absolute;
   // right: 14px;
   // top: 14px;
-  &:active {
-    background-color: #3396ff;
-  }
   &:hover, &:active {
     background-color: #3396ff;
   }
+}
+.button__case{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 .button_submit {
   background-color: $color__theme--sub;
@@ -36,9 +42,6 @@
   // position: absolute;
   // right: 14px;
   // top: 14px;
-  &:active {
-    background-color: #3396ff;
-  }
   &:hover, &:active {
     background-color: #3396ff;
   }
@@ -65,10 +68,6 @@
 //     width: 0;
 //   }
 // }
-.button__case{
-  display: flex;
-  justify-content: space-between;
-}
 // 027 Make a class for the chosen alphabets. MOVE 2 'application.scss'.
 .font__alphabets--grid {
   background-color: $color__theme--main;
@@ -85,11 +84,11 @@
   text-align: center;
   transition-duration: $duration--sm;
   width: 10vw;
-  // &:hover {
-  //   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  //   cursor: pointer;
-  //   transform: translateY(-10%);
-  // }
+  &:hover, &:active {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+    transform: translateY(-10%);
+  }
   // 057a Class when the alphabet is selected. MOVE 2 'clickable.js'
   &.selected {
     filter: grayscale(1);
@@ -107,7 +106,7 @@
   justify-content: center;
   .font__alphabets--grid {
     margin: 0 6px 0 0;
-    &:hover {
+    &:hover, &:active {
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
       cursor: default;
       transform: none;
@@ -115,8 +114,7 @@
   }
 }
 .title {
+  font-size: 2.2rem;
   font-weight: bolder;
-  margin: 0;
-  padding: 0 0 14px 0;
   text-transform: uppercase;
 }
