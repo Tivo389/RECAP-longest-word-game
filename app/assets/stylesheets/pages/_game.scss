@@ -7,6 +7,67 @@
   position: relative;
   width: 100vw;
 }
+#timer {
+  font-size: 3.0rem;
+  font-weight: bolder;
+}
+.button_new_game {
+  background-color: $color__theme--sub;
+  border-radius: 3px;
+  color: $color--white;
+  font-family: $headers-font;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  padding: 4px 10px 4px 10px;
+  // position: absolute;
+  // right: 14px;
+  // top: 14px;
+  &:hover, &:active {
+    background-color: #3396ff;
+  }
+}
+.button__case{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.button_submit {
+  background-color: $color__theme--sub;
+  border-radius: 3px;
+  color: $color--white;
+  font-family: $headers-font;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  padding: 4px 10px 4px 10px;
+  // position: absolute;
+  // right: 14px;
+  // top: 14px;
+  &:hover, &:active {
+    background-color: #3396ff;
+  }
+}
+// .button_submit {
+//   background-color: $color__theme--sub;
+//   color: $color--white;
+//   font-family: $headers-font;
+//   font-size: 1.6rem;
+//   letter-spacing: 1px;
+//   padding: 4px 4px 4px 10px;
+//   position: absolute;
+//   right: 24px;
+//   top: 12px;
+//   &:after {
+//     border-bottom: 15px solid transparent;
+//     border-left: 15px solid $color__theme--sub;
+//     border-top: 15px solid transparent;
+//     bottom: 0;
+//     content: "";
+//     height: 0;
+//     right: -15px;
+//     position: absolute;
+//     width: 0;
+//   }
+// }
 // 027 Make a class for the chosen alphabets. MOVE 2 'application.scss'.
 .font__alphabets--grid {
   background-color: $color__theme--main;
@@ -23,7 +84,7 @@
   text-align: center;
   transition-duration: $duration--sm;
   width: 10vw;
-  &:hover {
+  &:hover, &:active {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     cursor: pointer;
     transform: translateY(-10%);
@@ -45,7 +106,7 @@
   justify-content: center;
   .font__alphabets--grid {
     margin: 0 6px 0 0;
-    &:hover {
+    &:hover, &:active {
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
       cursor: default;
       transform: none;
@@ -53,9 +114,7 @@
   }
 }
 .title {
+  font-size: 2.2rem;
   font-weight: bolder;
-  margin: 0;
-  padding: 0;
-  text-align: center;
   text-transform: uppercase;
 }

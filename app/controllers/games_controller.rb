@@ -54,6 +54,8 @@ class GamesController < ApplicationController
       # 071b - This was confirmed by showing a console log message.
       # 071c - MOVE 2 'score.js.erb'
     respond_to do |format|
+      # Not certain why but without the html version, when you put the ajax request url into the browser you get a ActionController::UnknownFormat. The remote true does seem to be changing the heading type to js so html shouldn't be I guess its a necessary default incase the user has blocked javascript.
+      format.html
       format.js
     end
   end

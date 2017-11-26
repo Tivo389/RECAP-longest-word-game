@@ -10,7 +10,7 @@ $(document).ready(function() {
     // var timeStart = new Date();
     //=====================================================
     $('div.grid__container').children().each(function(gridIndex) {
-      $(this).mousedown(function() {
+      $(this).mousedown(function(event) {
         var gridLetterTag = $(this);
         var targetHTML = document.querySelector('div.letters__container');
         var selectedLetter = this.innerHTML;
@@ -59,34 +59,76 @@ $(document).ready(function() {
       });
     });
     //=====================================================
+    // 082 Added the 'timer.js' here so it can access the function 'submitAnswer'.
+    // 083 COMPLETE!! GIT AND MERGE.
+    var count = 1000;
+
+    var counter = setInterval(timer, 10);
+
+    function timer() {
+      if (count <= 0) {
+        clearInterval(counter);
+        document.getElementById("timer").innerHTML = 'Time is up!';
+        document.getElementById("gameboard").style["pointer-events"] = 'none';
+        submitAnswer();
+        return;
+      } else {
+        if (count % 100 === 1) {
+          count--;
+          document.getElementById("timer").innerHTML = (count / 100) + '.00';
+          return;
+        } else if (count % 10 === 1) {
+          count--;
+          document.getElementById("timer").innerHTML = (count / 100) + '0';
+          return;
+        }
+        count--;
+        document.getElementById("timer").innerHTML = count / 100;
+      }
+    }
+    //=====================================================
     // 062 When the enter key is pressed, get the selected letters, join them, pass the into the input, and submit.
-    $(document).keydown(function(){
+    function submitAnswer() {
+      var userWordArray = [];
+      selectedLetters.forEach(function(letterObject) {
+        userWordArray.push(Object.values(letterObject)[0]);
+      });
+      var userWord = userWordArray.join('');
+      // 067 [CANCELLED] New Variable. 068 is BELOW.
+      // var timeEnd = new Date();
+      $('#game_data_user_answer')[0].value = userWord;
+      // 063 [CANCELLED] When submit the following function, and not the default should run.
+      // $('#user_word').submit(getTheResult());
+      // 069 Seems I was heading in the wrong direction, adjusting to fix, cancelled some previous steps. MOVE 2 'game.html.erb'
+      $('#user_word').submit();
+    }
+
+    $('div.button_new_game').click(function() {
+      clearInterval(counter);
+      location.reload();
+    });
+
+    $('div.button_submit').click(function() {
+      clearInterval(counter);
+      submitAnswer();
+    });
+
+    $(document).keydown(function(event) {
       if (event.which === 13) {
-        var userWordArray = [];
-        selectedLetters.forEach(function(letterObject) {
-          userWordArray.push(Object.values(letterObject)[0]);
-        });
-        var userWord = userWordArray.join('');
-        // 067 [CANCELLED] New Variable. 068 is BELOW.
-        // var timeEnd = new Date();
-        $('#game_data_user_answer')[0].value = userWord;
-        // 063 [CANCELLED] When submit the following function, and not the default should run.
-        // $('#user_word').submit(getTheResult());
-        // 069 Seems I was heading in the wrong direction, adjusting to fix, cancelled some previous steps. MOVE 2 'game.html.erb'
-        $('#user_word').submit();
+        clearInterval(counter);
+        submitAnswer();
       }
       // 064 [CANCELLED] A function to get the game data from the simple_form. But since its in ruby... MOVE 2 'game.html.erb'
-      function getTheResult() {
-        console.log(userWord);
-        console.log(timeStart);
-        console.log(timeEnd);
-        console.log((timeEnd - timeStart)/1000);
-        console.log($('#rubyData').data('gridletters'));
+      // function getTheResult() {
+      //   console.log(userWord);
+      //   console.log(timeStart);
+      //   console.log(timeEnd);
+      //   console.log((timeEnd - timeStart)/1000);
+      //   console.log($('#rubyData').data('gridletters'));
         // 068 [CANCELLED] Since there were a few redefined variables, the controller might have to go through some changes... 069 is ABOVE.
         // request.original_url
-      }
+      // }
     });
-    //=====================================================
   };
 
 });

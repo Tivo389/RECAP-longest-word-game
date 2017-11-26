@@ -1,11 +1,12 @@
 <!-- 053 IT WORKS!!! The base game at this point is pretty much complete. But I want to add the following features...-->
-  <!-- 053a - Make it so the letters from the grid are clickable. When clicked they will grey out become unclickable while they also appear in the center of the view port. This is what will be added into the viewport making the input... a hidden? -->
-  <!-- 053b - Add a 15 second countdown timer and the total user score. -->
-    <!-- 053b1 - If 15 seconds is up display a modal to say time is up and show a button to play a new game. -->
-  <!-- 053c - Place the submit button on the upper right corner. -->
-  <!-- 053d - Upon submit use ajax and display the calculated score in a modal. -->
-  <!-- 053e - This modal must contain 'play a new game' button -->
-  <!-- 053f - If the player plays a new game, their score must be the sum of all games played so far. -->
+  <!-- 053a - [COMPLETE] Make it so the letters from the grid are clickable. When clicked they will grey out become unclickable while they also appear in the center of the view port. This is what will be added into the viewport making the input... a hidden? -->
+  <!-- 053b - [COMPLETE] Add a 15 second countdown timer and the total user score. -->
+    <!-- 053b1 - [COMPLETE] If 15 seconds is up display a modal to say time is up and show a button to play a new game. -->
+  <!-- 053c - [COMPLETE] Place the submit button on the upper right corner. -->
+  <!-- 053d - [COMPLETE] Upon submit use ajax and display the calculated score in a modal. -->
+  <!-- 053e - [COMPLETE] This modal must contain 'play a new game' button -->
+  <!-- 053f - [CANCEL] If the player plays a new game, their score must be the sum of all games played so far. -->
+    <!-- On second thought I don't think I can do this in this case. No model to store the score. -->
 <!-- 054 @terminal / Added all the current changes, comitted them, and pushed them to the origin, merged them and made a new branch to start adding the new features. MOVE 2 'application.js' -->
 <h1><%= @result %></h1>
 <%= link_to 'Play A New Game', root_path, class: "btn btn-primary" %>
