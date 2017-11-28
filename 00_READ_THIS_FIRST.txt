@@ -6,3 +6,4 @@
 002 / Sublime / Gemfile
   - 001 START!
 -------------------------------------------------
+084 / WAIT! Adding a 'screen is vertical warning to iphone'. MOVE 2 '_game.scss' & 'game.html.erb'

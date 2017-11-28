@@ -7,6 +7,37 @@
   position: relative;
   width: 100vw;
 }
+@keyframes rotatePhone {
+  0%   {transform: rotate(0deg);}
+  10%  {transform: rotate(0deg);}
+  65%  {transform: rotate(90deg);}
+  100% {transform: rotate(90deg);}
+}
+#phone__warning--modal {
+  align-items: center;
+  background-color: $color__theme--main;
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  padding: 0 0 5vh 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 200;
+  & h2 {
+    color: $color--white;
+    margin: 5vh 0 0 0;
+  }
+  & .svg__phone {
+    animation: infinite ease-out 2.0s alternate rotatePhone;
+    height: 30vh;
+    &--path {
+      fill: $color--white;
+    }
+  }
+}
 #timer {
   font-size: 3.0rem;
   font-weight: bolder;
@@ -117,4 +148,10 @@
   font-size: 2.2rem;
   font-weight: bolder;
   text-transform: uppercase;
+}
+
+@media only screen and (orientation: portrait) {
+  #phone__warning--modal {
+    display: flex;
+  }
 }
