@@ -60,7 +60,7 @@ $(document).ready(function() {
     });
     //=====================================================
     // 082 Added the 'timer.js' here so it can access the function 'submitAnswer'.
-    // 083 COMPLETE!! GIT AND MERGE.
+    // 083 COMPLETE!! GIT AND MERGE. MOVE 2 '00_READ_THIS_FIRST.txt'
     var count = 1000;
 
     var counter = setInterval(timer, 10);
