@@ -1,6 +1,6 @@
 require_relative 'boot'
 
-require "rails"
+# require "rails"
 # Pick the frameworks you want:
 
 # require "active_model/railtie"
@@ -16,7 +16,8 @@ require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+# Bundler.require(*Rails.groups)
+Bundler.require :default, Rails.env
 
 module RECAPLongestWordGame
   class Application < Rails::Application
