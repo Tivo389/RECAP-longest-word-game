@@ -19,6 +19,17 @@
     Detected sqlite3 gem which is not supported on Heroku:
     # Commented it out
     bundle install
-
+  085c / SOLUTION
+    # Encountered some issues but it seems that...
+    - 'git commit' => merge the branch to master => 'git push heroku master' solved it.
+  085d
+    # Renamed heroku app
+    heroku apps:rename sm-wordgame --app tranquil-fjord-43092
+  085e / ERROR
+    # H10 error in Heroku. Log mentions something about sqlite and active record.
+    # Commented out the following 3 in 'application.rb'
+      # require "active_model/railtie"
+      # require "active_job/railtie"
+      # require "active_record/railtie"
 
 
