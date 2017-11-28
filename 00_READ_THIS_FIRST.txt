@@ -7,4 +7,18 @@
   - 001 START!
 -------------------------------------------------
 084 / WAIT! Adding a 'screen is vertical warning to iphone'. MOVE 2 '_game.scss' & 'game.html.erb'
-085 / ADD to HEROKU
+085 / ADDING to HEROKU
+  085a / added "ruby '2.3.4'" to the Gemfile
+  085b / Terminal
+    heroku create $WordGame
+    git remote -v
+    # To check the app is connected to both git and heroku.
+    git push heroku master
+    # No need for db:migrate as this app didn't use db.
+  085c / ERROR
+    Detected sqlite3 gem which is not supported on Heroku:
+    # Commented it out
+    bundle install
+
+
+
