@@ -31,5 +31,10 @@
       # require "active_model/railtie"
       # require "active_job/railtie"
       # require "active_record/railtie"
+  085e / Had to revert back to 085b due to severals errors.
+    - Major cause of error seems to be how I set the rails app up.
+    - Should've used 'rails new myApp --skip-active-record' when making the app...
+      - Make a new app and transfer files?
+      - Possible to remove the active-record?
 
 
